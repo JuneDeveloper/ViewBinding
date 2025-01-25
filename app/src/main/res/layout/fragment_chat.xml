@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.ChatFragment">
+
+    <Button
+        android:id="@+id/backChatBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/back"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textChatTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="24sp"
+        android:gravity="bottom"
+        android:padding="20dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/background_round"
+        tools:ignore="InefficientWeight" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
+
+        <EditText
+            android:id="@+id/inputTextChatET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            tools:ignore="InefficientWeight" />
+
+        <Button
+            android:id="@+id/sendChatBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:background="@drawable/background_round"/>
+
+    </LinearLayout>
+
+</LinearLayout>
