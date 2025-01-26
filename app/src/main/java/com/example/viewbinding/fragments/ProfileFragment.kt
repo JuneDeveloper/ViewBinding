@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.viewbinding.utils.MyAdapter
 import com.example.viewbinding.model.Person
 import com.example.viewbinding.R
@@ -24,7 +25,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private var selectImage: Uri? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater,container,false)
@@ -36,19 +38,29 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = MyAdapter(listPerson)
+        binding.recycleViewRV.layoutManager = LinearLayoutManager(context)
         binding.recycleViewRV.adapter = adapter
 
         getImage()
 
         binding.saveProfileBTN.setOnClickListener {
-            val person = Person(
+            val person = Person(selectImage!!,
                 binding.nameRecycleViewET.text.toString(),
                 binding.surnameRecycleViewET.text.toString(),
                 binding.ageRecycleViewET.text.toString(),
                 binding.phoneRecycleViewET.text.toString())
             listPerson.add(person)
             adapter.notifyDataSetChanged()
+            clear()
         }
+    }
+
+    private fun clear() {
+        binding.imageProfileIV.setImageResource(R.drawable.baseline_image_search_24)
+        binding.nameRecycleViewET.text.clear()
+        binding.surnameRecycleViewET.text.clear()
+        binding.ageRecycleViewET.text.clear()
+        binding.phoneRecycleViewET.text.clear()
     }
 
     private fun getImage() {

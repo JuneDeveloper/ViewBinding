@@ -1,7 +1,5 @@
 package com.example.viewbinding.utils
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +28,7 @@ class MyAdapter(private val listPerson:MutableList<Person>):RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         val person = listPerson[position]
-//        holder.image.setImageURI(person.image)
+        holder.image.setImageURI(person.image)
         holder.name.text = person.name
         holder.surname.text = person.surname
         holder.age.text = person.age
